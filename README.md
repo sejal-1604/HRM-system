@@ -207,6 +207,4 @@ Ensure these are set in your `.env` file:
    - Server is configured to allow requests from localhost:3000
    - For other origins, update CORS configuration in server.js
 
-## License
-
-This project is licensed under the ISC License.
+Made with efforts by genzzz
