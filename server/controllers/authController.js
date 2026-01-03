@@ -1,6 +1,7 @@
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const { sendWelcomeEmail } = require('../utils/emailService');
 
 exports.signup = async (req, res) => {
   try {
@@ -14,6 +15,14 @@ exports.signup = async (req, res) => {
     
     // Create user
     const result = await User.create({ companyName, name, email, phone, password, role });
+    
+    // Send welcome email
+    try {
+      await sendWelcomeEmail(email, name, result.loginId, password, role);
+    } catch (emailError) {
+      console.error('Failed to send welcome email:', emailError);
+      // Continue even if email fails
+    }
     
     res.status(201).json({ 
       message: 'User created successfully', 
@@ -55,7 +64,8 @@ exports.signin = async (req, res) => {
         name: user.name,
         email: user.email,
         role: user.role,
-        loginId: user.login_id
+        loginId: user.login_id,
+        passwordChanged: user.password_changed || false
       }
     });
   } catch (error) {

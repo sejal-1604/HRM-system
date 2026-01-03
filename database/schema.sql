@@ -23,6 +23,7 @@ CREATE TABLE users (
     department VARCHAR(255),
     manager VARCHAR(255),
     location VARCHAR(255),
+    password_changed BOOLEAN DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (company_id) REFERENCES companies(id)
 );
