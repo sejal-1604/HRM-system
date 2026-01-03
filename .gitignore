@@ -1,0 +1,60 @@
+# =========================
+# Node.js
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# =========================
+# Environment variables
+# =========================
+.env
+.env.local
+.env.*.local
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# OS generated files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE / Editor settings
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# Build / cache
+# =========================
+dist/
+build/
+.cache/
+.tmp/
+
+# =========================
+# Coverage
+# =========================
+coverage/
+
+# =========================
+# Database files
+# =========================
+*.dump
+*.db
+*.sqlite
+
+# =========================
+# Uploads (if later added)
+# =========================
+uploads/
+public/uploads/
